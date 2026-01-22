@@ -4,7 +4,7 @@ set -euo pipefail
 
 cd ~/apps/GreenHouseV3
 
-# generează random safe
+# genereaza un random safe
 FLASK_SECRET="$(python3 - <<'PY'
 import secrets; print(secrets.token_hex(32))
 PY
@@ -36,7 +36,7 @@ INGEST_RATE_WINDOW_SEC=10
 INGEST_RATE_MAX_REQ=60
 ENV
 
-# asigură-te că .env nu ajunge în git
+# .env nu trebuie sa ajunga în git
 touch .gitignore
 grep -qxF ".env" .gitignore || echo ".env" >> .gitignore
 
